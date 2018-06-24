@@ -4,9 +4,9 @@
 
 {% block 'pageCSS' %}
     <link href="{% static 'dist/css/pages/dashboard1.css' %}" rel="stylesheet">
+    <link href="{% static 'vectormap/jquery-jvectormap-2.0.3.css' %}" rel="stylesheet">
 
 {% endblock %}
-
 
 {% block 'content' %}
 
@@ -67,9 +67,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr class = "tr-DE">
                                             <td>192.168.0.1</td>
-                                            <td>Германия</td>
+                                            <td>Германия, Нюрнберг</td>
                                             <td>OpenVPN</td>
                                             <td><input type = "submit" onclick = "downloadConfig();"" value = "Подключиться" /></td>
                                         </tr>
@@ -104,7 +104,11 @@
     <script src="{% static 'assets/node_modules/d3/d3.min.js' %}"></script>
     <script src="{% static 'assets/node_modules/c3-master/c3.min.js' %}"></script>
     <!-- Chart JS -->
-    
+<!--
     <script type="text/javascript" src="{% static 'jqvmap/dist/jquery.vmap.js' %}"></script>
     <script type="text/javascript" src="{% static 'jqvmap/dist/maps/jquery.vmap.world.js' %}" charset="utf-8"></script>
+-->
+    <script type="text/javascript" src="{% static 'vectormap/jquery-jvectormap-2.0.3.min.js' %}"></script>
+    <script src="{% static 'vectormap/jquery-jvectormap-world-mill-en.js' %}"></script>
+
 {% endblock %}

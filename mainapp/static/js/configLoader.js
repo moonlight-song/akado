@@ -24,7 +24,74 @@ $(document).ready(function() {
         alert( "js fail" );
     });
 
+    $('#map').vectorMap({
+        map: 'world_mill_en',
+        panOnDrag: true,
 
+        focusOn: {
+          x: 0.5,
+          y: 0.5,
+          scale: 5,
+          animate: false,
+          lat: 53,
+          lng: 8.4
+        },
+
+        backgroundColor: "#e6f6ff",
+
+        regionStyle : {
+          initial: {
+            fill: 'white',
+            "fill-opacity": 1,
+            stroke: 'none',
+            "stroke-width": 0,
+            "stroke-opacity": 1
+          },
+          hover: {
+            fill: '#ffb6c3',
+            cursor: 'pointer'
+          },
+          selected: {
+            fill: '#ff92a6'
+          },
+          selectedHover: {
+          }
+        },
+
+
+        markerStyle : {
+          initial: {
+            fill: '#f77164',
+            stroke: '#c51100',
+            "fill-opacity": 1,
+            "stroke-width": 0.5,
+            "stroke-opacity": 1,
+            r: 12
+          },
+          hover: {
+            fill: '#ea220f',
+            "stroke-width": 1,
+            cursor: 'pointer'
+          },
+          selected: {
+            fill: '#ea220f'
+          }
+        },
+
+        markers : [
+            {
+                latLng : [49.460562, 11.069856],
+                name : "Nuernberg"
+            }
+        ]
+
+
+      });
+
+    $('.tr-DE').click(function(){
+        $('#map').vectorMap('set', 'focus', {scale: 8, lat: 49.460562, lng: 11.069856, animate: true});
+      });
+/*
     jQuery('#vmap').vectorMap({
         map: 'world_en',
         backgroundColor: '#a5bfdd',
@@ -50,7 +117,7 @@ $(document).ready(function() {
             alert(message);
         }
     });
-
+*/
 });
 
 function downloadConfig () {

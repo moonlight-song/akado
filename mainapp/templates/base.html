@@ -11,8 +11,8 @@
 
     {% load static %}
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/favicon.png' %}">
-    <title>Elegant Admin Template - The Ultimate Multipurpose admin template</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'pics/favicon.ico' %}">
+    <title>Акадо VPN</title>
     <!-- This page CSS -->
     <!-- chartist CSS -->
     <link href="{% static 'assets/node_modules/morrisjs/morris.css' %}" rel="stylesheet">
@@ -57,7 +57,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{% url 'login'%}">
                         <!-- Logo icon -->
                         <b>
                             <!-- Light Logo icon -->
@@ -81,7 +81,11 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{% static 'assets/images/users/1.jpg' %}" alt="user" class="img-circle" width="30"></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {% block 'userPic' %}
+                                    <img src="{% static 'assets/images/users/1.jpg' %}" alt="user" class="img-circle" width="30">
+                                {% endblock %}
+                            </a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
