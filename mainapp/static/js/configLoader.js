@@ -1,3 +1,9 @@
+var configObj = {
+    a : "",
+    url : ""
+}
+
+
 $(document).ready(function() {
 
     $.ajax ({
@@ -9,15 +15,18 @@ $(document).ready(function() {
         }
     }).done (function (data) {
 
-        var a = document.createElement('a');
-        var url = window.URL.createObjectURL(data);
-        a.href = url;
-        a.download = 'config.ovpn';
-        a.click();
-        window.URL.revokeObjectURL(url);
+        configObj.a = document.createElement('a');
+        configObj.url = window.URL.createObjectURL(data);
+        configObj.a.href = configObj.url;
+        configObj.a.download = 'config.ovpn';
 
     }).fail(function() {
         alert( "js fail" );
     });
 
 });
+
+function downloadConfig () {
+    configObj.a.click();
+    window.URL.revokeObjectURL(configObj.url);
+}
