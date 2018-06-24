@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block 'pageCSS' %}
+    <link href="{% static 'dist/css/pages/dashboard1.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block 'content' %}
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-4 mx-auto card" style = "text-align : center;">
+                        <h2 style = "margin-top: 20px;" class = "mx-auto">Войдите в систему для подключения</h2>
+                        <form action="{% url 'login' %}" method="post" class = "mx-auto mt-4">
+                            {% csrf_token %}
+                            <div class = "form-group">
+                                <input name = "username" placeholder = "Введите Ваш логин" class = "form-control"/>
+                            </div>
+                            <div class = "form-group">
+                                <input type = "password" placeholder = "Введите Ваш пароль" name = "password" class = "form-control"/>
+                            </div>    
+                            <div class = "form-group">
+                                <button type="submit" value="Sign in" class="btn btn-primary">Войти</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
