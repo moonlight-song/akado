@@ -34,7 +34,7 @@ class Configs (APIView) :
 class Pages (APIView) :
 
     def get (self, request, *args, **kwargs):
-        return render(request, 'index.html', None)
+        return render(request, 'auth.html', None)
 
     def post (self, request, *args, **kwargs):
         user = authenticate(username = request.POST['username'], password = request.POST['password'])

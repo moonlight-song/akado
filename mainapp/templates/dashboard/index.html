@@ -1,17 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends "base.html" %}
+{% load static %}
 
-    <script src = "https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-    {% load static %}
-    <script src = "{% static 'js/configLoader.js' %}"></script>
+{% block 'pageCSS' %}
+    <link href="{% static 'dist/css/pages/dashboard1.css' %}" rel="stylesheet">
 
-</head>
-<body>
+{% endblock %}
 
-<a onclick = "downloadConfig();">Link</a>
-</body>
-</html>
+
+{% block 'content' %}
+
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 class="text-themecolor">Подключение к АКАДО VPN</h4>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Yearly Sales -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="card oh">
+                            <div class="card-body">
+                                <div id = "map" style="width: 720px; height: 450px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div>
+                                        <h5 class="card-title">Доступные серверы VPN</h5>
+                                        <h6 class="card-subtitle">Нажмите для подключения</h6>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <select class="custom-select b-0">
+                                            <option value="1">Германия</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ip-адрес</th>
+                                            <th>Местоположение</th>
+                                            <th>Протокол VPN</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>192.168.0.1</td>
+                                            <td>Германия</td>
+                                            <td>OpenVPN</td>
+                                            <td><input type = "submit" onclick = "downloadConfig();"" value = "Подключиться" /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+
+{% endblock %}
+
+
+{% block 'pageJS' %}
+
+	<script src = "{% static 'js/configLoader.js' %}"></script>
+    <!-- ============================================================== -->
+    <!--morris JavaScript -->
+    <script src="{% static 'assets/node_modules/raphael/raphael-min.js' %}"></script>
+    <script src="{% static 'assets/node_modules/morrisjs/morris.min.js' %}"></script>
+    <script src="{% static 'assets/node_modules/jquery-sparkline/jquery.sparkline.min.js' %}"></script>
+    <!--c3 JavaScript -->
+    <script src="{% static 'assets/node_modules/d3/d3.min.js' %}"></script>
+    <script src="{% static 'assets/node_modules/c3-master/c3.min.js' %}"></script>
+    <!-- Chart JS -->
+    
+    <script type="text/javascript" src="{% static 'jqvmap/dist/jquery.vmap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jqvmap/dist/maps/jquery.vmap.world.js' %}" charset="utf-8"></script>
+{% endblock %}
