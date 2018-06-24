@@ -10,16 +10,21 @@ class Configs (APIView) :
 
     def get (self, request, *args, **kwargs) :
 
-        script = Popen("./check_vpn.sh", stdout=PIPE, shell=True)
+
+        script = Popen("mainapp/check_vpn.sh", stdout=PIPE, shell=True)
+        #script = Popen("ls -al", stdout=PIPE, stderr=PIPE, shell=True)
+
         script.communicate()
         exit_status = script.wait()
 
-        if exit_status == 0 :
+        
+
+        if int (exit_status) == 0 :
             return HttpResponse ("Some shit occured on the VPN side")
 
         else :
             directory = OSpath.dirname(OSpath.abspath(__file__))
-            filename = OSpath.join("configs", "config.jpg")
+            filename = OSpath.join("configs", "vpngate_113.156.101.72_udp_1845.ovpn")
 
             file = open (OSpath.join (directory, filename), 'rb')
             response = HttpResponse(file, content_type = 'application/octet-stream')
